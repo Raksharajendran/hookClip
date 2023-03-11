@@ -5,7 +5,7 @@ const pool = new Pool({
   password: "raksha18",
   host: "localhost",
   port: 5432,
-  database: "hookclip",
+  database: "hookclip_db",
 });
 
 module.exports = pool;

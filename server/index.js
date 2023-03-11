@@ -8,29 +8,10 @@ app.use(express.json());
 
 //ROUTES//
 
-//create login
-app.post("/login", async (req, res) => {
-  try {
-    const { user_name } = req.body;
-    const { user_password } = req.body;
-    const newLogin = await pool.query(
-      "insert into users (user_name,user_password) values($1,$2) returning *",
-      [user_name, user_password]
-    );
-    res.json(newLogin.rows[0]);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
 //get all Buckets of the user
-app.get("/:id", async (req, res) => {
+app.get("/buckets", async (req, res) => {
   try {
-    const { id } = req.params;
-    const allBuckets = await pool.query(
-      "select * from bucket where user_id = ($1)",
-      [id]
-    );
+    const allBuckets = await pool.query("select * from bucket");
     res.json(allBuckets.rows);
   } catch (err) {
     console.error(err.message);
@@ -38,13 +19,12 @@ app.get("/:id", async (req, res) => {
 });
 
 //create a new bucket for the user
-app.post("/:id", async (req, res) => {
+app.post("/newBucket", async (req, res) => {
   try {
     const { bucket_name } = req.body;
-    const { id } = req.params;
     const newBucket = await pool.query(
-      "insert into bucket(user_id,bucket_name) values($1,$2) returning *",
-      [id, bucket_name]
+      "insert into bucket(bucket_name) values($1) returning *",
+      [bucket_name]
     );
     res.json(newBucket.rows[0]);
   } catch (err) {
@@ -53,7 +33,7 @@ app.post("/:id", async (req, res) => {
 });
 
 //delete a user's bucket
-app.delete("/:id", async (req, res) => {
+app.delete("/deleteBucket", async (req, res) => {
   try {
     const { bucket_name } = req.body;
     const deleteBucket = await pool.query(
@@ -67,7 +47,7 @@ app.delete("/:id", async (req, res) => {
 });
 
 //create a user card
-app.post("/:id/:bucketId", async (req, res) => {
+app.post("/:bucketId", async (req, res) => {
   try {
     const { bucketId } = req.params;
     const { card_link } = req.body;
@@ -83,7 +63,7 @@ app.post("/:id/:bucketId", async (req, res) => {
 });
 
 //get all cards of the user
-app.get("/:id/:bucketId", async (req, res) => {
+app.get("/:bucketId", async (req, res) => {
   try {
     const { bucketId } = req.params;
     const allCards = await pool.query(
@@ -97,7 +77,7 @@ app.get("/:id/:bucketId", async (req, res) => {
 });
 
 //delete a user card
-app.delete("/:id/:bucketId/:cardId", async (req, res) => {
+app.delete("/:bucketId", async (req, res) => {
   try {
     const { cardId } = req.params;
     const deleteCard = await pool.query(
@@ -111,7 +91,7 @@ app.delete("/:id/:bucketId/:cardId", async (req, res) => {
 });
 
 //edit a user card
-app.put("/:id/:bucketId/:cardId", async (req, res) => {
+app.put("/:id/:bucketId", async (req, res) => {
   try {
     const { cardId } = req.params;
     const { card_link } = req.body;
@@ -127,7 +107,7 @@ app.put("/:id/:bucketId/:cardId", async (req, res) => {
 });
 
 //move a user card
-app.put("/:id/:bucketId/:cardId/move", async (req, res) => {
+app.put("/:id/:bucketId/move", async (req, res) => {
   try {
     const { bucket_id } = req.body;
     const { cardId } = req.params;

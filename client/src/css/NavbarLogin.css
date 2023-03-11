@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Georgia);
+
+.navbarLogin {
+  background-color: rgb(14, 2, 64);
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: "Georgia", sans-serif;
+  color: rgb(255, 255, 255);
+  padding: 0.5rem;
+  margin-top: 0rem;
+  border: 5px solid #ffffff;
+  border-radius: 10px;
+}
+
+* {
+  background: #02a770;
+}

@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text");
+
+.boxBucket {
+  display: inline-flex;
+}
+
+.bucketHead {
+  border-style: solid;
+  border-color: white;
+  border-radius: 5px;
+  border-width: 5px;
+  background-color: rgb(1, 100, 65);
+  padding: 15px;
+  margin-left: 45px;
+  margin-bottom: 45px;
+  font-size: 3rem;
+  font-family: "Crimson Text";
+  color: white;
+}
+
+.bucketHead:hover {
+  cursor: grab;
+  background-color: rgb(5, 153, 101);
+}
+
+.buttonBucket {
+  margin-right: 5px;
+  margin-left: 50px;
+  margin-top: 3rem;
+  color: white;
+  border-width: 3px;
+  border-radius: 8px;
+  border-color: rgb(14, 2, 64);
+  background-color: #cc0a0a;
+  font-size: large;
+  height: 55px;
+  width: 155px;
+}
+
+.buttonBucket:hover {
+  cursor: grab;
+  background-color: #cf3e3e;
+}

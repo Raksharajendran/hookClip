@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Satisfy");
+
+.movieGif {
+  margin: 15px;
+  margin-left: 300px;
+  width: 250px;
+  height: 150px;
+  border-radius: 8px;
+}
+
+.box {
+  display: inline-flex;
+}
+
+.boxHeading {
+  margin-top: 3rem;
+  margin-left: 5rem;
+  font-family: "Satisfy", sans-serif;
+  font-size: 4rem;
+  color: rgb(28, 1, 138);
+}
+
+.buttonCreate {
+  margin-left: 7rem;
+  margin-top: 4rem;
+  color: white;
+  border-width: 3px;
+  border-radius: 8px;
+  border-color: rgb(14, 2, 64);
+  background-color: #13bd07;
+  font-size: large;
+  height: 55px;
+  width: 155px;
+}
+
+.buttonCreate:hover {
+  cursor: grab;
+  background-color: #5aca51;
+}
