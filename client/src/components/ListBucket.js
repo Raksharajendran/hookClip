@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavBarLogin from "./NavBarLogin";
 import Bucket from "./Bucket";
-import ReactDOM from "react-dom";
-import { Route, Link, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
 import ListCard from "./ListCard";
 import "../css/ListBucket.css";
 
@@ -51,9 +50,9 @@ const ListBucket = () => {
           </div>
         ))}
       </div>
+      {flag && <Navigate to="/card" />}
       <Routes>
-        {flag === 1 && <Link to="/card"></Link>}
-        <Route path="/card" component={ListCard} />
+        <Route path="/card" element={<ListCard />}></Route>
       </Routes>
     </div>
   );

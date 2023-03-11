@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<ListBucket />}></Route>
+        <Route path="/*" element={<ListBucket />}></Route>
       </Routes>
     </BrowserRouter>
   );
